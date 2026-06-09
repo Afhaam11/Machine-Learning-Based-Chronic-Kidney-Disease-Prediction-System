@@ -1,108 +1,170 @@
-# 🩺 Chronic Kidney Disease (CKD) Prediction App
+# 🩺 Machine Learning-Based Chronic Kidney Disease Prediction System
 
-## 📘 Overview
-This project is a machine learning web app built with Streamlit that predicts the likelihood of Chronic Kidney Disease (CKD) based on medical parameters such as blood pressure, blood urea, serum creatinine, hemoglobin, and other biochemical indicators.
+## 📖 Project Overview
 
-The app combines several machine learning models — Logistic Regression, Decision Tree, Random Forest, XGBoost, KNN, SVM, and Naive Bayes — into a Voting Classifier Ensemble, providing a robust and accurate prediction system.
+CKD Prediction System is a machine learning-powered web application designed to assist in the early detection of Chronic Kidney Disease (CKD) using clinical and laboratory parameters. The application leverages multiple classification algorithms combined through a Voting Ensemble Classifier to deliver reliable and accurate predictions.
 
-Users can input patient details via an interactive Streamlit form, and the app outputs whether the patient is likely to have CKD or not.
+Built with Streamlit, the platform provides a user-friendly interface where healthcare professionals, students, and researchers can input patient health data and instantly receive a CKD risk assessment.
 
-### 📊 Dataset
-
-This project uses the Chronic Kidney Disease (CKD) dataset.
-
-* **File name:** `kidney_disease.csv`
-* **Location:** Same folder as `app.py`
-* **Description:** Contains 400 patient records with 25 clinical features and a target variable (`ckd` or `notckd`) used for prediction.
-* **Example path in project:**
-    ```
-    ./kidney_disease.csv
-    ```
+The system analyzes important medical indicators such as blood pressure, blood glucose levels, serum creatinine, blood urea, hemoglobin, and several other diagnostic attributes to determine whether a patient is likely to have Chronic Kidney Disease.
 
 ---
 
-### ⚙️ Installation and Setup
+## 🎯 Objectives
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/AkshayShetty7/Chronic-Kidney-Disease.git
-    cd Chronic-Kidney-Disease
-
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Run the Streamlit App**
-    ```bash
-    streamlit run app.py
-    ```
-    Then open the displayed local URL in your browser (usually `http://localhost:8501`).
+* Detect potential CKD cases using machine learning techniques.
+* Improve prediction accuracy through ensemble learning.
+* Provide an intuitive and interactive web-based interface.
+* Demonstrate the practical application of machine learning in healthcare analytics.
 
 ---
 
-### 🧠 Features Used
+## 🤖 Machine Learning Models Used
 
-| Abbreviation | Description                      |
-| :----------- | :------------------------------- |
-| **age** | Age (years)                      |
-| **bp** | Blood Pressure (mm Hg)           |
-| **sg** | Specific Gravity                 |
-| **al** | Albumin                          |
-| **su** | Sugar                            |
-| **bgr** | Blood Glucose Random (mg/dL)     |
-| **bu** | Blood Urea (mg/dL)               |
-| **sc** | Serum Creatinine (mg/dL)         |
-| **sod** | Sodium (mEq/L)                   |
-| **pot** | Potassium (mEq/L)                |
-| **hemo** | Hemoglobin (g/dL)                |
-| **pcv** | Packed Cell Volume (%)           |
-| **wc** | White Blood Cell Count (/cmm)    |
-| **rc** | Red Blood Cell Count (million/cmm) |
-| **rbc** | Red Blood Cells (normal/abnormal)|
-| **pc** | Pus Cells (normal/abnormal)      |
-| **pcc** | Pus Cell Clumps (present/absent) |
-| **ba** | Bacteria (present/absent)        |
-| **htn** | Hypertension (yes/no)            |
-| **dm** | Diabetes Mellitus (yes/no)       |
-| **cad** | Coronary Artery Disease (yes/no) |
-| **appet** | Appetite (good/poor)             |
-| **pe** | Pedal Edema (yes/no)             |
-| **ane** | Anemia (yes/no)                  |
+The prediction engine combines the strengths of multiple classification algorithms:
+
+* Logistic Regression
+* Decision Tree Classifier
+* Random Forest Classifier
+* XGBoost Classifier
+* K-Nearest Neighbors (KNN)
+* Support Vector Machine (SVM)
+* Gaussian Naive Bayes
+
+These models are integrated using a Voting Classifier Ensemble, enabling more robust and consistent predictions compared to individual models.
 
 ---
 
-### 📁 Project Structure
+## 📊 Dataset Information
+
+The application utilizes the Chronic Kidney Disease (CKD) dataset containing patient medical records and diagnostic measurements.
+
+**Dataset Details**
+
+* **File:** `kidney_disease.csv`
+* **Records:** 400 patient samples
+* **Features:** 24 clinical and laboratory attributes
+* **Target Variable:** CKD / Not CKD
+
+The dataset includes both numerical and categorical medical indicators commonly used in kidney disease diagnosis.
+
+---
+
+## 🚀 Key Features
+
+✅ Real-time CKD risk prediction
+
+✅ Interactive Streamlit-based user interface
+
+✅ Ensemble machine learning architecture
+
+✅ Automated preprocessing of categorical and numerical data
+
+✅ Fast and accurate prediction results
+
+✅ Easy deployment and scalability
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/AkshayShetty7/Chronic-Kidney-Disease.git
+cd Chronic-Kidney-Disease
+```
+
+### Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+### Launch the Application
+
+```bash
+streamlit run app.py
+```
+
+Open the generated local URL (typically `http://localhost:8501`) in your browser.
+
+---
+
+## 🧠 Input Features
+
+The model evaluates multiple clinical indicators, including:
+
+| Feature | Description             |
+| ------- | ----------------------- |
+| age     | Age of patient          |
+| bp      | Blood Pressure          |
+| sg      | Specific Gravity        |
+| al      | Albumin                 |
+| su      | Sugar                   |
+| bgr     | Blood Glucose Random    |
+| bu      | Blood Urea              |
+| sc      | Serum Creatinine        |
+| sod     | Sodium                  |
+| pot     | Potassium               |
+| hemo    | Hemoglobin              |
+| pcv     | Packed Cell Volume      |
+| wc      | White Blood Cell Count  |
+| rc      | Red Blood Cell Count    |
+| rbc     | Red Blood Cell Status   |
+| pc      | Pus Cell Status         |
+| pcc     | Pus Cell Clumps         |
+| ba      | Presence of Bacteria    |
+| htn     | Hypertension            |
+| dm      | Diabetes Mellitus       |
+| cad     | Coronary Artery Disease |
+| appet   | Appetite                |
+| pe      | Pedal Edema             |
+| ane     | Anemia                  |
+
+---
+
+## 📁 Project Structure
 
 ```bash
 ckd-prediction/
 │
-├── app.py                    # Streamlit web app
-├── kidney_disease.csv        # Local dataset
-├── ckd_voting_model.pkl      # Trained ensemble model
-├── label_encoder.pkl         # Label encoder for target variable
-├── README.md                 # Project documentation
-├── requirements.txt          # Dependencies
-└── models/                   # Optional folder for storing models
-
-
+├── app.py
+├── kidney_disease.csv
+├── ckd_voting_model.pkl
+├── label_encoder.pkl
+├── README.md
+├── requirements.txt
+└── models/
 ```
 
 ---
 
-### 🧾 Example Predictions
+## 📈 Sample Predictions
 
-| Case                                        | Result      |
-| :------------------------------------------ | :---------- |
-| Elderly patient, high BP, high urea/creatinine | ⚠️ Likely CKD |
-| Young healthy patient, normal vitals        | ✅ Not CKD    |
+| Patient Condition                                             | Prediction    |
+| ------------------------------------------------------------- | ------------- |
+| Elevated blood pressure, increased creatinine and urea levels | ⚠️ Likely CKD |
+| Healthy clinical parameters and normal laboratory values      | ✅ Not CKD     |
 
 ---
 
-### 👨‍⚕️ Author
+## 🛠️ Technologies Used
 
-**Akshay Shetty**
+* Python
+* Streamlit
+* Scikit-learn
+* XGBoost
+* Pandas
+* NumPy
+* Pickle
 
-*Machine Learning Enthusiast | Data Science Student*
+---
+
+## 👨‍💻 Author
+
+**Afhaam Ali**
+
+Machine Learning Enthusiast | Data Science Student
+
+Passionate about developing AI-driven healthcare solutions and applying machine learning techniques to solve real-world problems.
