@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.DS_Store
+
+# trained models are rebuilt on first run (see README); keep the folder itself
+models/*
+!models/.gitkeep

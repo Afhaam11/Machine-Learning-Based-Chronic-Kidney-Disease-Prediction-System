@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CKD Risk Lab</title>
+  <meta name="description" content="Estimate chronic kidney disease risk from 24 clinical measurements, see which values drive the result, and test what-if changes.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='18' width='5' height='10' rx='1.5' fill='%231F8F6E'/%3E%3Crect x='10' y='14' width='5' height='14' rx='1.5' fill='%23C99700'/%3E%3Crect x='17' y='9' width='5' height='19' rx='1.5' fill='%23D9631A'/%3E%3Crect x='24' y='4' width='5' height='24' rx='1.5' fill='%23C2193F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/static/css/styles.css?v=11">
+  <script src="/static/js/theme.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#assess" aria-label="CKD Risk Lab, assess a patient">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-copy">
+          <span class="brand-name">CKD Risk Lab</span>
+          <span class="brand-tagline">A clearer view of the signals.</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#assess" data-nav="assess">Assess</a>
+        <a href="#models" data-nav="models">Models</a>
+        <a href="#batch" data-nav="batch">Batch</a>
+        <a href="#history" data-nav="history">History<span class="nav-count" id="history-count" hidden></span></a>
+        <a href="#about" data-nav="about">About</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme"></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="view" id="view-assess" data-view="assess">
+      <header class="assess-hero">
+        <div class="assess-hero-copy">
+          <p class="eyebrow"><span class="eyebrow-pulse" aria-hidden="true"></span> CKD RISK EXPLORER</p>
+          <h1>Explore the signals<br class="hero-break"> behind a prediction.</h1>
+          <p>Bring routine measurements together, see how the models read them, and explore what changes the estimate.</p>
+        </div>
+        <div class="hero-facts" aria-label="About this assessment">
+          <div class="hero-fact"><strong>24</strong><span>clinical measures</span></div>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <div class="hero-fact"><strong>7</strong><span>models in the ensemble</span></div>
+          <span class="hero-orbit orbit-one" aria-hidden="true"></span>
+          <span class="hero-orbit orbit-two" aria-hidden="true"></span>
+        </div>
+      </header>
+      <div class="assess">
+        <form id="patient-form" class="sheet" novalidate autocomplete="off" aria-labelledby="form-title"></form>
+        <aside id="readout" class="readout" aria-label="Assessment result"></aside>
+      </div>
+    </section>
+
+    <section class="view page" id="view-models" data-view="models" hidden>
+      <header class="page-head">
+        <h1 tabindex="-1">How well do the models work?</h1>
+        <p class="lede" id="models-lede">Loading the evaluation…</p>
+      </header>
+      <div id="models-body"></div>
+    </section>
+
+    <section class="view page" id="view-batch" data-view="batch" hidden>
+      <header class="page-head">
+        <h1 tabindex="-1">Score a whole file</h1>
+        <p class="lede">Upload a CSV with one patient per row. Column names match the form fields (age, bp, sg and so on). Blank cells are fine; each row needs at least 5 measurements.</p>
+      </header>
+      <div id="batch-body"></div>
+    </section>
+
+    <section class="view page" id="view-history" data-view="history" hidden>
+      <header class="page-head">
+        <h1 tabindex="-1">History</h1>
+        <p class="lede">Assessments you ran in this browser. They are stored on this device only and can be cleared at any time.</p>
+      </header>
+      <div id="history-body"></div>
+    </section>
+
+    <section class="view page prose" id="view-about" data-view="about" hidden>
+      <header class="page-head">
+        <h1 tabindex="-1">About this tool</h1>
+        <p class="lede">CKD Risk Lab estimates the likelihood of chronic kidney disease from 24 routine clinical and laboratory measurements, and shows its working.</p>
+      </header>
+
+      <section class="developer-card" aria-label="Project developer">
+        <img class="developer-avatar" src="/static/img/afhaam-avatar.png" alt="Afhaam Asief Ali Muhammed">
+        <div class="developer-info">
+          <p class="developer-label">Project developer</p>
+          <h2>Afhaam Asief Ali Muhammed</h2>
+          <p class="developer-meta">Computer Science &amp; Engineering Student</p>
+          <p class="developer-role">AI/ML Engineer · Reinforcement Learning, Explainable AI &amp; Data Visualization</p>
+          <nav class="developer-links" aria-label="Developer links">
+            <a href="https://www.linkedin.com/in/muhammed-afhaam-a-23259b240" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/afhaam11" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/Afhaam11/Machine-Learning-Based-Chronic-Kidney-Disease-Prediction-System" target="_blank" rel="noopener noreferrer">Repository <span aria-hidden="true">↗</span></a>
+            <a href="mailto:afhaam008@gmail.com">Email <span aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="tech-stack" aria-labelledby="tech-stack-title">
+        <div class="tech-stack-heading">
+          <p class="developer-label">Under the hood</p>
+          <h2 id="tech-stack-title">Built with a clear, inspectable stack</h2>
+        </div>
+        <div class="tech-grid">
+          <section class="techgroup">
+            <h3>Frontend</h3>
+            <div class="tech-chips"><span>HTML</span><span>CSS</span><span>JavaScript ES modules</span></div>
+          </section>
+          <section class="techgroup">
+            <h3>Backend</h3>
+            <div class="tech-chips"><span>Python</span><span>Flask API</span><span>Schema validation</span></div>
+          </section>
+          <section class="techgroup">
+            <h3>AI &amp; analysis</h3>
+            <div class="tech-chips"><span>scikit-learn</span><span>XGBoost</span><span>Soft voting</span><span>Cross-validation</span><span>Shapley explanations</span><span>What-if analysis</span></div>
+          </section>
+          <section class="techgroup">
+            <h3>Deployment</h3>
+            <div class="tech-chips"><span>Docker</span><span>Waitress</span><span>Joblib</span></div>
+          </section>
+        </div>
+      </section>
+
+      <div class="prose-grid">
+        <section>
+          <h2>How an estimate is made</h2>
+          <p>Your values are cleaned and encoded in one place, so the form, the batch importer and the training code can never disagree. Seven classifiers (logistic regression, decision tree, random forest, XGBoost, k-nearest neighbors, support vector machine and Gaussian naive Bayes) each estimate the probability of CKD. The ensemble averages those seven probabilities.</p>
+          <p>Missing values are filled with typical values learned from the training data, inside each model's own pipeline. The result says how many measurements it was built from and whether the models agree.</p>
+        </section>
+
+        <section>
+          <h2>Why this result</h2>
+          <p>Contributions are Shapley values: the model walks from a typical healthy profile to your values one measurement at a time, over many random orders, and shares the change in risk fairly between the measurements. Together they add up exactly to the difference between the healthy-profile risk and your estimate.</p>
+          <p>The what-if panel re-scores the same patient while one measurement is swept across its range, holding everything else fixed.</p>
+        </section>
+
+        <section>
+          <h2>Reading the risk strip</h2>
+          <ul class="band-legend" id="band-legend"></ul>
+          <p>The large marker is the ensemble. Each small dot is one model, so a tight cluster means agreement and a spread means the case is close to the decision line at 50%.</p>
+        </section>
+
+        <section>
+          <h2>Limits to keep in mind</h2>
+          <ul>
+            <li>The training data is 400 patients from a single published dataset, and many values are missing. Near-perfect scores on it do not predict clinical performance.</li>
+            <li>Typical ranges shown on the form are general adult reference intervals. Laboratories, age and sex all shift them.</li>
+            <li>Reliability is a rule of thumb based on completeness, model agreement and training range. It is not a statistical confidence interval.</li>
+            <li>This is not a medical device and does not provide a diagnosis.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Privacy</h2>
+          <p>The server scores what you send and keeps no record of it. Your history is saved in this browser only, and the Clear button on the History page removes it.</p>
+        </section>
+
+        <section>
+          <h2>Data</h2>
+          <p>The Chronic Kidney Disease dataset from the UCI Machine Learning Repository: 400 patients, 24 measurements, 250 with CKD and 150 without.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p id="disclaimer">For education and research only. This model is not a medical device and does not replace assessment by a qualified clinician.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="report" class="report" aria-hidden="true"></section>
+
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>
